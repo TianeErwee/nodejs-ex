@@ -34,8 +34,6 @@ fi
 
 echo "---> Installing application source ..."
 mv /tmp/src/* ./
-echo "---> Installing PM2 ..."
-npm install -g pm2
 
 # Fix source directory permissions
 fix-permissions ./
@@ -111,6 +109,10 @@ else
 		echo "---> Cleaning the $NPM_TMP/npm-*"
 		rm -rf $NPM_TMP/npm-*
 	fi
+
+
+	echo "---> Installing PM2 ..."
+	npm install -g pm2
 
 fi
 
