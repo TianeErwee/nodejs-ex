@@ -22,8 +22,7 @@ run_node() {
     exec nodemon --inspect="$DEBUG_PORT"
   else
     echo "Launching via npm..."
-    pm2 start server.js
-    # exec npm run -d $NPM_RUN
+    exec npm run -d $NPM_RUN
   fi
 } 
 
