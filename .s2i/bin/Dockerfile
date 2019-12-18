@@ -30,7 +30,7 @@ fast, scalable network applications. Node.js uses an event-driven, non-blocking 
 that makes it lightweight and efficient, perfect for data-intensive real-time applications \
 that run across distributed devices."
 
-LABEL summary="$SUMMARY" \
+LABEL summary="MY DOCKERFILE $SUMMARY" \
       description="$DESCRIPTION" \
       io.k8s.description="$DESCRIPTION" \
       io.k8s.display-name="Node.js $NODEJS_VERSION" \
@@ -53,7 +53,6 @@ RUN yum install -y centos-release-scl-rh && \
     INSTALL_PKGS="rh-nodejs8 rh-nodejs8-npm rh-nodejs8-nodejs-nodemon nss_wrapper" && \
     ln -s /usr/lib/node_modules/nodemon/bin/nodemon.js /usr/bin/nodemon && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
-    echo "this is my dockerfile ------>" \
     rpm -V $INSTALL_PKGS && \
     yum -y clean all --enablerepo='*'
 
