@@ -114,7 +114,6 @@ fi
 
 echo "---> Installing PM2 ..."
 npm install -g pm2
-service mysqld start
 
 # Fix source directory permissions
 fix-permissions ./

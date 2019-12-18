@@ -53,9 +53,7 @@ RUN yum install -y centos-release-scl-rh && \
     INSTALL_PKGS="rh-nodejs8 rh-nodejs8-npm rh-nodejs8-nodejs-nodemon nss_wrapper" && \
     ln -s /usr/lib/node_modules/nodemon/bin/nodemon.js /usr/bin/nodemon && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
-    rpm -Uvh https://repo.mysql.com/mysql80-community-release-el7-3.noarch.rpm \
-    sed -i 's/enabled=1/enabled=0/' /etc/yum.repos.d/mysql-community.repo \
-    yum --enablerepo=mysql80-community install mysql-community-server \
+    echo "this is my dockerfile ------>" \
     rpm -V $INSTALL_PKGS && \
     yum -y clean all --enablerepo='*'
 
