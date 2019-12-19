@@ -30,24 +30,6 @@ fast, scalable network applications. Node.js uses an event-driven, non-blocking 
 that makes it lightweight and efficient, perfect for data-intensive real-time applications \
 that run across distributed devices."
 
-LABEL summary="MY DOCKERFILE $SUMMARY" \
-      description="$DESCRIPTION" \
-      io.k8s.description="$DESCRIPTION" \
-      io.k8s.display-name="Node.js $NODEJS_VERSION" \
-      io.openshift.expose-services="8080:http" \
-      io.openshift.tags="builder,$NAME,$NAME$NODEJS_VERSION" \
-      io.openshift.s2i.scripts-url="image:///usr/libexec/s2i" \
-      io.s2i.scripts-url="image:///usr/libexec/s2i" \
-      com.redhat.dev-mode="DEV_MODE:false" \
-      com.redhat.deployments-dir="${APP_ROOT}/src" \
-      com.redhat.dev-mode.port="DEBUG_PORT:5858"\
-      com.redhat.component="rh-$NAME$NODEJS_VERSION-container" \
-      name="centos/$NAME-$NODEJS_VERSION-centos7" \
-      version="$NODEJS_VERSION" \
-      maintainer="SoftwareCollections.org <sclorg@redhat.com>" \
-      help="For more information visit https://github.com/sclorg/s2i-nodejs-container" \
-      usage="s2i build <SOURCE-REPOSITORY> centos/$NAME-$NODEJS_VERSION-centos7:latest <APP-NAME>"
-
 RUN yum install -y centos-release-scl-rh && \
     ( [ "rh-${NAME}${NODEJS_VERSION}" != "${NODEJS_SCL}" ] && yum remove -y ${NODEJS_SCL}\* || : ) && \
     INSTALL_PKGS="rh-nodejs8 rh-nodejs8-npm rh-nodejs8-nodejs-nodemon nss_wrapper" && \
